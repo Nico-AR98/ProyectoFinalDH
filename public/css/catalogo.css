@@ -1,0 +1,29 @@
+#mainCatalogo {
+    display: grid;
+    justify-items: center;
+    grid-gap:10px;
+}
+
+#opcionesFiltrado {
+    justify-content: end;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-right: 2%;
+    margin-bottom: 5px;
+}
+
+.btn i {
+    font-size: 1.75rem;
+    color: white;
+}
+
+.btn {
+    margin-left: 5px;
+    background-color: #F3D3CCff !important;
+    color: white !important;
+}
+
+.filtro1 {
+    max-width: 150px;
+}

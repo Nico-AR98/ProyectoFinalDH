@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Ambos Seven - Login</title>
+    <%- include('./partials/head')%>
+</head>
+<body>
+    <%-include('./partials/header') %>
+    <main>
+            <form action="/login" method="POST" class="login">
+                <h3 class="titulo2">Ingresar</h3>
+                <p class="control-login">
+                    <label>EMAIL</label>
+                    <input type="email" name="email" placeholder="tunombre@email.com" class="contraseña">
+                </p>
+                <p class="control-login">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" name="password" class="contraseña"><i class="fas fa-eye-slash"></i>
+                </p>
+                <div class="box-check">
+                    <p class="control-login acomodar">
+                        <input type="checkbox" name="recordarme">
+                        <label>RECORDARME</label>
+                        
+                    </p>
+                    <p class="control-login">
+                        <label>¿Olvidaste tu contraseña?</label>
+                    </p>
+                </div>
+                <p class="control-login">
+                    <button type="submit" class="boton"><a href="/"><strong></strong>INGRESAR</a></button></strong>
+                </p>
+                <p class="control-login">
+                    <label>¿No tienes cuenta aún?</label>
+                    <a href="/user/registro"><strong>CREAR CUENTA</strong></a>
+                </p>
+            </form>
+    </main>
+    <%-include('./partials/footer') %>
+</body>
+</html>

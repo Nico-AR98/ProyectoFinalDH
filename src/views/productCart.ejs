@@ -1,0 +1,85 @@
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="/css/carrito.css">
+    <title>Ambos Seven - Carrito</title>
+    <%- include('./partials/head') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/navbar') %>
+    </header>
+
+    <main>
+        <h2 class="titulo2">Carrito de compras</h2>
+        <section id="carrito">
+
+            <article>
+                <img src="/images/producto1.jpg" alt="">
+
+                <h3>Ambo 1</h3>
+
+                <h3>Precio Unitario: $3500</h3>
+
+                <input type="number" id="cantidad" placeholder="Unidad" name="cantidadProducto"
+                min="1">
+
+                <i class="fas fa-trash-alt"></i>
+
+                <select class="form-select" aria-label="Talle">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <h3>Subtotal:$3500</h3><!--Aqui va el resultado del precio * cantidad-->
+
+            </article>
+
+            <article>
+
+                <img src="/images/producto2.jpg" alt="ambo">
+
+                <h3>Ambo 2</h3>
+
+                <h3>Precio Unitario: $2500</h3>
+
+                <input type="number" id="cantidad" placeholder="Unidad" name="cantidadProducto"
+                min="1">
+
+                <i class="fas fa-trash-alt"></i>
+
+
+                <select class="form-select" aria-label="Talle">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+
+                <h3>Subtotal:$2500</h3><!--Aqui va el resultado del precio * cantidad-->
+
+            </article>
+
+            <p class="subtitulo">Subtotal(Sin envío):$6000</p>
+
+            <p class="subtitulo">Medios de Envío</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Código Postal" aria-label="CP" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">CALCULAR</span>
+            </div>
+
+            <p class="subtitulo">Total:$6000</p>
+
+            <button type="button" class="btn botonComprar">Iniciar Compra</button>
+
+            <a href="#">Ver más productos</a>
+
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

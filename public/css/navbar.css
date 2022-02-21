@@ -1,0 +1,256 @@
+/* Navbar :) */
+
+nav {
+    background-color: #F3D3CCff;
+    padding-top: 10px;
+    border-bottom: 2px solid #F4F2F2ff ;
+    position: fixed;
+    top:0;
+    z-index: 5;
+    width: 100vw;
+}
+
+#nameMarca {
+    font-family: 'The Nautigal', cursive;
+    font-size: 60px;
+    font-weight: 590;
+    letter-spacing: 0.4px;
+    padding-left: 50px;
+    color: white;
+    transform: rotateZ(-3deg);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+nav ul li {
+    list-style: none;
+    padding-bottom: 10px;
+    display: none;
+}
+
+nav ul li a:hover {
+    color: #fa5284ff;
+    text-decoration: underline;
+    transition-duration: 0.2s;
+}
+
+.icons-desktop article i:hover {
+    color: #fa5284ff;
+    transition-duration: 0.2s;
+}
+
+.icon-bar {
+    text-align: end;
+    position: relative;
+    margin-top: -10px;
+}
+
+.icon-bar i {
+    font-size: 40px;
+    padding-right: 20px;
+}
+
+
+.icons-desktop {
+    display: none;
+}
+
+/*modal*/
+
+.modal-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modal-container button {
+    background-color: #fa5284ff;
+    border: 0.5px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color:#F4F2F2ff ;
+    font-size: 14px;
+    padding: 8px 20px;
+}
+
+.modal-container input {
+    border-radius: 5px;
+    border: 0.5px solid grey ;
+    min-height: 28px;
+}
+
+.modal-container button:hover{
+    background-color: #F4F2F2ff;
+    color:#fa5284ff;
+    border: 0.5px solid #fa5284ff;
+    transition-duration: 0.2s;
+}
+
+.modal1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 600px;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#formBuscar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav ul li {
+    display: block;
+}
+
+nav ul {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: black;
+    padding: 5px 15px 5px 15px;   
+}
+
+#cabeceraSup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.icons-desktop {
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.icons-desktop article {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.icons-desktop article i {
+    font-size: 20px;
+    color: #212529;
+}
+
+.icons-desktop article button {
+    border: 0px;
+    background-color: transparent;
+}
+
+.active {
+    color:#fa5284ff;
+}
+
+#check {
+    display: none;
+
+}
+
+#btnMenu {
+    display: none;
+
+}
+
+@media (max-width:769px) {
+
+    #btnMenu {
+        display: block;
+    
+    }
+
+    #cabeceraSup{
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .icons-desktop{
+        padding-top: 5px;
+        padding-bottom: 10px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .icons-desktop article{
+        padding: 0px 10px 0px 10px;
+    }
+
+    #nameMarca {
+        text-align: center;
+        padding: 0px;
+    }
+
+    nav {
+        padding: 0px;
+    }
+
+    .container {
+        display: none;
+        
+    }
+
+    .container ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        min-height: 20vh;
+    }
+
+    .container ul li {
+        padding: 0px;
+    }
+
+    #btnMenu i {
+        position: fixed;
+        top: 84;
+        left: 5;
+        font-size: 20px;
+    }
+
+    #check {
+        display: none;
+    }
+
+    #check:checked + .container {
+        transition: all 5s;
+        display: block;
+        background-color:#F4F2F2ff;
+    }
+
+    #check:not(:checked) + .container {
+        display: none;
+    }
+
+}
+
+

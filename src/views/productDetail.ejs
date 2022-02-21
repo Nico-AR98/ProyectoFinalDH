@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <title>Detalle del producto</title>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('./partials/navbar') %>
+    </header>
+
+    <main>
+            <section>
+
+                <h1 class="titulo1"><%= producto.nombre +" "+ producto.color%></h1>
+
+                <article> 
+                    <img src= <%=producto.imagen%> class="imagen" alt="Ambo">
+
+                    <p class="descripcion"><%=producto.descripcion%></p>
+
+                    <h2 class="precio">Precio: $<%=producto.precio%></h2>
+                    <p class="icono"><span class="material-icons">
+                    credit_card 
+                    </span> Pagá hasta 12 cuotas de $ <%=precioCuota%> </p>
+
+
+                    <p class="pago"> Ver otros Medios de pagos</p>
+
+                    <div>
+                        <p class="talle">TALLE</p>
+                    <select>
+                        <% for (let i =0; i<producto.talles.length; i++) { %>
+                            <option value="<%=producto.talles[i]%>">
+                              <%=producto.talles[i]%> 
+                            </option>
+                        <%}%> 
+                    </select>
+                    </div>
+
+
+                    <br>
+
+                    <input type="number" id="cantidad" placeholder="Cantidad" name="cantidadProducto" min="1">
+
+                    <p class="carritos">
+                        <span class="material-icons">shopping_cart</span> 
+                        Agregar al carrito
+                    </p>
+
+                    <p class=" cambios"> 
+                        <span class="material-icons"></span>
+                        ¡30 DIAS DE CAMBIO! <br> 
+                        <b> No te gusto o no es tu talle, tenés 30 días para cambiarlo.</b>
+                    </p>
+
+                </article>
+
+            </section>
+
+            <br>
+
+            <section>
+
+                <h4 class="producto">PRODUCTO</h4>
+
+                <p class="productos"><%=producto.composicion%></p>
+                <p class="productos">Se destacan por la calidad del material y los detalles únicos de confección. Además la combinación de colores especialmente seleccionados le dan el toque fresco que no puede faltar en las prendas Ambos Seven.</p>
+
+
+                <h4 class="producto"> RECOMENDACIONES Y CUIDADOS</h4>
+
+                <div class="cuidados">
+
+                    <ul>
+                        <li class="productos">
+
+                            Lavar con agua fría, preferentemente a mano.
+
+                        </li>
+                        <li class="productos">
+                            Centrifugar antes de poner a secar.
+                        </li>
+                        <li class="productos">
+                            Plancha suave.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+        </main>
+
+    <%- include('./partials/footer') %>
+</body>
+
+</html>

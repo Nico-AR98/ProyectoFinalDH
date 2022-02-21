@@ -1,0 +1,29 @@
+footer {
+    width: 100vw;
+    text-align: center;
+    background-color: #E5DFDFff;
+    color: #808C8Dff;
+    height: 190px;
+}
+
+footer section i {
+    font-size: 2.5rem;
+}
+
+footer section {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+@media (min-width:768px){
+    footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 110px;
+    }
+
+    footer p{
+        width: 100%;
+    }
+}

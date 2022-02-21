@@ -1,0 +1,36 @@
+/*Estilos generales*/
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 138px;
+}
+
+/*tipografias*/
+
+.titulo {
+    font-size: 4rem;
+    font-weight: 550;
+    font-family: 'The Nautigal', cursive;
+    text-align: center;
+    color: #808C8Dff;
+}
+
+.titulo2 {
+    font-size: 4.2rem;
+    font-weight: 550;
+    font-family: 'The Nautigal', cursive;
+    text-align: center;
+    color: #fa5284ff;
+}
+
+.subtitulo {
+    font-size: 1.5rem;
+    font-weight: 200;
+}

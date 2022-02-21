@@ -1,0 +1,73 @@
+main{
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.h1{
+    font-size: large;
+}
+
+.control-register{
+    margin-bottom: 15px;
+}
+
+
+.control-register label{
+    margin-bottom: 5px;
+    display: block;
+}
+
+.control-register input{
+    padding: 2px 45px;
+}
+
+.control-register-robot{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 2px solid black;
+    margin-left: 590px;
+    margin-right: 590px;
+}
+
+.boton{
+    background-color: #dee2ff;
+    border-color: 2px solid black;
+    color: black;
+    padding: 2px 25px;
+    border-radius: 5px;
+}
+
+.control-register .boton:hover{
+    color: white;
+    background-color: #fa5284ff;
+    transition: background-color,0.3s;
+}
+
+main p a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.acomodar{
+    display: flex;
+    justify-content: center;
+}
+.acomodar label a{
+    padding-left: 15px;
+}
+.box-check{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: auto;
+}
+
+body header nav h2 a{
+    font-family: 'The Nautigal', cursive;
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: 550;
+    color: black;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <title>Ambos Seven - Registrarse</title>
+    <%- include('./partials/head')%>
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main>
+        <form action="/register" method="POST" class="registro">
+            <h2 class="titulo2">Crear cuenta</h2>
+            <p class="control-register">
+                <label>Nombre y Apellido</label>
+                <input type="text" name="Nombre y Apellido" placeholder="Maria Perez" required>
+            </p>
+            <p class="control-register">
+                <label>Dirección de Correo Electrónico</label>
+                <input type="email" name="email" placeholder="tunombre@email.com" required>
+            </p>
+            <p class="control-register">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" placeholder="3789547614" required>
+            </p>
+            <p class="control-register">
+                <label>Contraseña</label>
+                <input type="password" name="contraseña" required>
+            </p>
+            <p class="control-register">
+                <label>Repetir contraseña</label>
+                <input type="password" name="contraseña" required>
+            </p>
+            <p class="control-register-robot">
+                <label>No soy un robot</label>
+                <input type="checkbox" name="No soy un robot" required>
+            </p>
+            <p class="control-register">
+                <button type="submit" class="boton"><a href="/">Crear cuenta</button></a>
+            </p>
+            <div class="box-check">
+            <p class="control-register acomodar">
+                <label>¿Ya tienes cuenta?</label> 
+                <a href="/login">Inicia sesión</a>
+            </p>
+            </div>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

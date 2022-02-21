@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo1 {
+    font-size: 4rem;
+    font-family: 'The Nautigal', cursive;
+    text-align: center;
+    color: grey;
+    padding-top: 20px;
+}
+
+.descripcion {
+    color: palevioletred;
+    font-size: 20px;
+    font-family: 'roboto', sans-serif;
+    margin: 5px;
+    padding-top: 25px;
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: 50px;
+    font-family: 'roboto', sans-serif;
+    color: grey;
+    justify-content: flex-end;
+    padding: 25px 25px 10px 25px;
+}
+
+.imagen {
+    width: 30rem;
+    height: 38rem;
+    margin: 30px 40px 20px 30px;
+    border: 1px solid palevioletred;
+    float: left;
+}
+
+.talle {
+    font-size: 18px;
+    font-family: 'roboto', sans-serif;
+    color: black;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+.icono {
+    font-size: 15px;
+    font-family: 'roboto', sans-serif;
+    color: black;
+}
+
+.selector {
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border: palevioletred 1px solid;
+    color: grey
+}
+
+.pago {
+    color: grey;
+    background-color: rgb(247, 166, 193);
+    line-height: 5px;
+    border: 1px solid palevioletred;
+    display: inline;
+    border-radius: 25px;
+    font-size: 15px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.pago:hover {
+    color: black;
+}
+
+.material-icons {
+    color: grey;
+}
+
+.carritos {
+    background-color: rgb(247, 166, 193);
+    color: grey;
+    font-family: 'roboto', sans-serif;
+    border: palevioletred 2px solid;
+    border-radius: 20px;
+    display: inline;
+    padding: 15px;
+}
+
+.carritos:hover {
+    color: black;
+}
+
+#cantidad {
+    width: 100px;
+    height: 30px;
+}
+
+.cambios {
+    color: black;
+    font-family: 'roboto', sans-serif;
+    font-size: 15px;
+    padding: 20px;
+    margin: 25px;
+}
+
+.producto {
+    color: palevioletred;
+    font-size: 25px;
+    margin: 25px;
+    font-family: 'roboto', sans-serif;
+}
+
+.productos {
+    color: black;
+    font-size: 15px;
+    font-family: 'roboto', sans-serif;
+    margin: 25px;
+}
+
+.cuidados {
+    color: black;
+    font-size: 20px;
+    font-family: 'roboto', sans-serif;
+    margin: 25px;
+}

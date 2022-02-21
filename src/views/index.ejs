@@ -1,0 +1,81 @@
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Ambos Seven - Bienvenido</title>
+    <%- include('./partials/head')%>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar') %>
+
+    <main>
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/enfermeros.jpg" class="d-block w-100" alt="ambos-banner">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/ambo2slide.jpg" class="d-block w-100" alt="ambos-banner">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/ambo3slide.jpg" class="d-block w-100" alt="ambos-banner">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+        </div>
+
+
+        <section id="categorias">
+
+            <article id="catHombre">
+                <h3 class="titulo">Hombres</h3>
+                <img src="/images/enfermero.png" alt="ambo">
+            </article>
+
+            <article id="catMujer">
+                <h3 class="titulo">Mujeres</h3>
+                <img src="/images/enfermera.png" alt="ambo">
+            </article>
+
+            <article id="catAccesorios">
+                <img src="/images/barbijo.png" alt="ambo">
+                <h3 class="titulo">Accesorios</h3>
+                <img src="/images/barbijo1.png" alt="ambo">
+            </article>
+
+        </section>
+
+        <h2 class="titulo2">Productos Destacados</h2>
+
+        <section id="productosDestacados">
+            <% for (let i =0; i<productos.length; i++) { %>
+              <article>
+                <img src= <%=productos[i].srcImg%> >
+                <div>
+                  <h3><%= productos[i].nombre%></h3>
+                  <h3>$<%= productos[i].precio%></h3>
+                  <a href="producto/detalle/<%=(i+1)%>"><i class="far fa-plus-square"></i></a>
+                </div>
+              </article>
+            <%}%> 
+          </section>
+
+    </main>
+
+    <%- include('./partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="/modal.js"></script>
+</body>
+
+</html>
