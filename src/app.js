@@ -9,6 +9,10 @@ app.set("view engine", "ejs")
 //Config archivos estáticos
 app.use(express.static("../public"));
 
+//Config formularios
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
 //Rutas
 const rutasProducto = require("./routes/producto");
 const rutasMain = require("./routes/main");
