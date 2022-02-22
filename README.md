@@ -27,4 +27,5 @@ https://oh-wear.com/
 
 Elegí este sitio porque me gusto por la manera en como esta distribuido su contenido,me  gusto sus diseños y su variedad.
 
-
+Link de repositorio anterior:
+https://github.com/bogarinelias0/Grupo5_Ambos
