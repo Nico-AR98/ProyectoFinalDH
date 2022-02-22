@@ -1,0 +1,59 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+form label {
+    font-size: 15px;
+    padding-top: 15px ;
+}
+
+form div label {
+    padding-top: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+
+/* Los inputs 1 son aquellos que son de tipo numero,texto o password*/
+
+form .input1,select {
+    width: 20%;
+    height: 26px;
+    border: 0.5px solid #8F8E92ff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+form textarea {
+    width: 20%;
+    height: 60px;
+    border: 0.5px solid #8F8E92ff;
+    border-radius: 5px;
+}
+
+ 
+.btn1 {
+    margin-top: 10px;
+    width:35%;
+    height: 30px;
+    background-color: #fa5284ff;
+    color:#F4F2F2ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 0.5px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    padding: 8px 20px;
+}
+
+.btn1:hover{
+    background-color: #F4F2F2ff;
+    color:#fa5284ff;
+    border: 0.5px solid #fa5284ff;
+    transition-duration: 0.2s;
+}
+

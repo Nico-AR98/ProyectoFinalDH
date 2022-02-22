@@ -1,109 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link rel="stylesheet" href="/css/estilos.css">
-    <link rel="stylesheet" href="/css/formcreacion.css">
+    <link rel="stylesheet" href="/css/formularios.css">
     <%- include('./partials/head')%>
 </head>
 
 <body>
     <%- include('./partials/navbar') %>
 
-        <main class="main-container-create">
+        <main>
 
-            <div class="form-group-create">
+            <h1 class="titulo2">Editar Producto</h1>
 
+            <form action="/edit" method="post">
 
-                <h1 class="titulo2">Editar Producto</h1>
+                <label for="nombre">Nombre</label>
 
-                <form class="form-button" action="/edit" method="post">
+                <input type="text" name="nombre" required>
 
-                    <input class="login-button" type="text" name="name" default="<%=producto.descripcion%>" required>
+                <label for="descripcion">Descripcion</label>
 
-                    <textarea class="login-button" name="description" default="<%=producto.descripcion%>" required></textarea>
+                <textarea name="descripcion" required><%producto.descripcion%></textarea>
 
-                    <p class="p">Seleccionar categoria</p>
+                <label for="categoria">Seleccionar categoria</label>
 
-                    <select class="login-button" name="categoria" required>
-                        <option value="Hombres">Hombres</option>
-                        <option value="Mujeres">Mujeres</option>
-                        <option value="Accesorios">Accesorios</option>
-                    </select>
+                <select name="categoria" required>
+                    <option value="Hombres">Hombres</option>
+                    <option value="Mujeres">Mujeres</option>
+                    <option value="Accesorios">Accesorios</option>
+                </select>
 
-                    <label for="img">Subir Imagen</label>
-                    <input class="login-button" type="file" name="img" required>
+                <label for="img">Subir Imagen</label>
+                <input  type="file" name="img" required>
 
-                    <p class="p">Seleccionar Talle</p>
+                <label for="talles">Seleccionar Talle</label>
 
-                    <div> 
-                        <label><input type="checkbox" name="" value="XS">  XS<label>
-                        <label><input type="checkbox" name="S" value="S"> S</label>
-                        <label><input type="checkbox" name="M" value="M"> M</label>
-                        <label><input type="checkbox" name="L" value="L"> L</label>
-                        <label><input type="checkbox" name="XL" value="XL"> XL</label>
-                    </div>
-
-                    <select class="login-button" name="color">
-                            <option value="Negro">Negro</option>
-                            <option value="Rojo">Rojo</option>
-                            <option value="Blanco">Blanco</option>
-                            <option value="Celeste">Celeste</option>
-                            <option value="Rosado">Rosado</option>
-                            <option value="Gris">Gris</option>
-                            <option value="Naranja">Naranja</option>
-                            <option value="Azul">Azul</option>
-                            <option value="Amarillo">Amarillo</option>
-                            <option value="Verde">Verde</option>
-                            <option value="Combinado">Combinado</option>
-                            <option value="Tricolor">Tricolor</option>
-                    </select>
-
-                    <label for="Precio">Precio del Producto</label>
-                    <input class="login-button" type="number" name="Precio" step="any" min="1" required>
+                <div>
+                    <label><input type="checkbox" name="talles" value="XS">  XS<label>
+                    <label><input type="checkbox" name="talles" value="S"> S</label>
+                    <label><input type="checkbox" name="talles" value="M"> M</label>
+                    <label><input type="checkbox" name="talles" value="L"> L</label>
+                    <label><input type="checkbox" name="talles" value="XL"> XL</label>
+                </div>
 
 
-                    <button class="send" type="submit">Editar producto</button>
+                <label for="color">Seleccionar Color</label>
 
-                </form>
+                <select name="color">
+                        <option value="Negro">Negro</option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Celeste">Celeste</option>
+                        <option value="Rosado">Rosado</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Naranja">Naranja</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Combinado">Combinado</option>
+                        <option value="Tricolor">Tricolor</option>
+                </select>
 
-                <form >
-                    
-                    <br>
-                    
-                    <br>
-
-
-                    
-                    
-                    <br>
-                    
-
-
-                    <br>
-
-                    
-
-                    <form class="login-button" value="Talles" name="Talles">
-
-                       
-                    </form>
-
-                    <br>
-                    <p class="p">Seleccionar Color</p>
-
-                    
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" required>
 
 
-                    <br>
-                    
-                    <br>
-                   
-                </form>
+                <button class="btn1" type="submit">Editar producto</button>
 
-            </div>
-
-
+            </form>
         </main>
 
 
