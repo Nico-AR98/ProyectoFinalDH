@@ -14,7 +14,7 @@
 
             <h1 class="titulo2">Creación de Nuevo Producto</h1>
 
-            <form action="/productos" method="post">
+            <form action="/producto/create" method="post" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre</label>
 
@@ -23,6 +23,10 @@
                 <label for="descripcion">Descripcion</label>
 
                 <textarea name="descripcion" required></textarea>
+
+                <label for="descripcion">Composicion</label>
+
+                <textarea name="composicion" required></textarea>
 
                 <label for="categoria">Seleccionar categoria</label>
 
