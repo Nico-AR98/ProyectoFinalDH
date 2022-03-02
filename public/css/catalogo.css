@@ -27,3 +27,15 @@
 .filtro1 {
     max-width: 150px;
 }
+
+.iconContainer {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconContainer i {
+    width: 14px;
+    font-size: 12px;
+}
