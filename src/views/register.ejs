@@ -7,36 +7,53 @@
     <%- include('./partials/head')%>
 </head>
 <body>
-    <%- include('./partials/header') %>
+    <header>
+        <%-include('./partials/navbar') %>
+    </header>
     <main>
-        <form action="/register" method="POST" class="registro">
+        <%if (locals && locals.errores) {%>
+
+            <%errores.forEach(error => { %>
+
+                <p style="color:red; text-align:center">
+                    <%= error.msg%>
+                </p>
+
+            <%})%>
+ 
+        <%}%>
+
+        <form action="/user/registro" method="POST" enctype="multipart/form-data" class="registro">
             <h2 class="titulo2">Crear cuenta</h2>
             <p class="control-register">
                 <label>Nombre y Apellido</label>
-                <input type="text" name="Nombre y Apellido" placeholder="Maria Perez" required>
+                <input type="text" name="nombreCompleto" value="<%= locals.old && old.nombreCompleto ? old.nombreCompleto : '' %>" >
             </p>
             <p class="control-register">
                 <label>Dirección de Correo Electrónico</label>
-                <input type="email" name="email" placeholder="tunombre@email.com" required>
+                <input type="email" name="email" placeholder="tunombre@email.com" value="<%= locals.old && old.email ? old.email : '' %>">
             </p>
             <p class="control-register">
                 <label>Teléfono</label>
-                <input type="tel" name="telefono" placeholder="3789547614" required>
+                <input type="num" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
             </p>
+
+            <p class="control-register">
+                <label>Foto de perfil</label>
+                <input type="file" name="img" >
+            </p>
+
             <p class="control-register">
                 <label>Contraseña</label>
-                <input type="password" name="contraseña" required>
+                <input type="password" name="password" required>
             </p>
             <p class="control-register">
                 <label>Repetir contraseña</label>
-                <input type="password" name="contraseña" required>
+                <input type="password" name="passwordConfirm" required>
             </p>
-            <p class="control-register-robot">
-                <label>No soy un robot</label>
-                <input type="checkbox" name="No soy un robot" required>
-            </p>
+
             <p class="control-register">
-                <button type="submit" class="boton"><a href="/">Crear cuenta</button></a>
+                <button type="submit" class="boton">Crear cuenta</button>
             </p>
             <div class="box-check">
             <p class="control-register acomodar">

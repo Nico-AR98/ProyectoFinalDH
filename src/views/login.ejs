@@ -7,9 +7,23 @@
     <%- include('./partials/head')%>
 </head>
 <body>
-    <%-include('./partials/header') %>
+    <header>
+        <%-include('./partials/navbar') %>
+    </header>
     <main>
-            <form action="/login" method="POST" class="login">
+        <%if (locals && locals.errores) {%>
+
+            <%errores.forEach(error => { %>
+
+                <p style="color:red; text-align:center">
+                    <%= error.msg%>
+                </p>
+
+            <%})%>
+ 
+        <%}%>
+        
+            <form action="/user/login" method="POST" class="login">
                 <h3 class="titulo2">Ingresar</h3>
                 <p class="control-login">
                     <label>EMAIL</label>
@@ -30,7 +44,7 @@
                     </p>
                 </div>
                 <p class="control-login">
-                    <button type="submit" class="boton"><a href="/"><strong></strong>INGRESAR</a></button></strong>
+                    <button type="submit" class="boton">INGRESAR</button>
                 </p>
                 <p class="control-login">
                     <label>¿No tienes cuenta aún?</label>

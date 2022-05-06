@@ -14,58 +14,70 @@
 
             <h1 class="titulo2">Editar Producto</h1>
 
-            <form action="/edit" method="post" enctype="multipart/form-data">
+            <form action="/producto/edit/<%=producto.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre</label>
 
-                <input type="text" name="nombre" required>
+                <input type="text" name="nombre" value="<%=producto.nombre%>" required>
 
                 <label for="descripcion">Descripcion</label>
 
-                <textarea name="descripcion" required><%producto.descripcion%></textarea>
+                <textarea name="descripcion" required><%=producto.descripcion%></textarea>
 
                 <label for="categoria">Seleccionar categoria</label>
 
                 <select name="categoria" required>
-                    <option value="Hombres">Hombres</option>
-                    <option value="Mujeres">Mujeres</option>
-                    <option value="Accesorios">Accesorios</option>
+
+                    <% for (let i =0; i<categorias.length; i++) { %>
+
+                        <% if (categorias[i]==producto.categoria){ %>
+                            <option value="<%=categorias[i]%>" selected><%=categorias[i]%></option>
+                        <% continue}%> 
+                        <option value="<%=categorias[i]%>"><%=categorias[i]%></option>
+                    <%}%> 
+
                 </select>
 
                 <label for="img">Subir Imagen</label>
-                <input  type="file" name="img" required>
+                <input  type="file" name="img">
 
                 <label for="talles">Seleccionar Talle</label>
 
                 <div>
-                    <label><input type="checkbox" name="talles" value="XS">  XS<label>
-                    <label><input type="checkbox" name="talles" value="S"> S</label>
-                    <label><input type="checkbox" name="talles" value="M"> M</label>
-                    <label><input type="checkbox" name="talles" value="L"> L</label>
-                    <label><input type="checkbox" name="talles" value="XL"> XL</label>
+
+                    <% for (let i =0; i<talles.length; i++) { %>
+
+                        <% if (producto.talles.includes(talles[i])){ %>
+
+                            <label>
+                                <input type="checkbox" name="talles" value="<%=talles[i]%>" checked><%=talles[i]%>
+                            </label>
+
+                        <% continue}%> 
+
+                        <label>
+                            <input type="checkbox" name="talles" value="<%=talles[i]%>"><%=talles[i]%>
+                        </label>
+
+                    <%}%> 
+
                 </div>
 
 
                 <label for="color">Seleccionar Color</label>
 
                 <select name="color">
-                        <option value="Negro">Negro</option>
-                        <option value="Rojo">Rojo</option>
-                        <option value="Blanco">Blanco</option>
-                        <option value="Celeste">Celeste</option>
-                        <option value="Rosado">Rosado</option>
-                        <option value="Gris">Gris</option>
-                        <option value="Naranja">Naranja</option>
-                        <option value="Azul">Azul</option>
-                        <option value="Amarillo">Amarillo</option>
-                        <option value="Verde">Verde</option>
-                        <option value="Combinado">Combinado</option>
-                        <option value="Tricolor">Tricolor</option>
+                    <% for (let i =0; i<colores.length; i++) { %>
+
+                        <% if (colores[i]==producto.color){ %>
+                            <option value="<%=colores[i]%>" selected><%=colores[i]%></option>
+                        <% continue}%> 
+                        <option value="<%=colores[i]%>"><%=colores[i]%></option> 
+                    <%}%> 
                 </select>
 
                 <label for="precio">Precio</label>
-                <input type="number" name="precio" required>
-
+                <input type="number" name="precio" value="<%=producto.precio%>"required>
 
                 <button class="btn1" type="submit">Editar producto</button>
 

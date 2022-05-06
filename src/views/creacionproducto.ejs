@@ -24,16 +24,12 @@
 
                 <textarea name="descripcion" required></textarea>
 
-                <label for="descripcion">Composicion</label>
-
-                <textarea name="composicion" required></textarea>
-
                 <label for="categoria">Seleccionar categoria</label>
 
-                <select name="categoria" required>
-                    <option value="Hombres">Hombres</option>
-                    <option value="Mujeres">Mujeres</option>
-                    <option value="Accesorios">Accesorios</option>
+                <select name="categoria">
+                    <% for (let i =0; i<categorias.length; i++) { %>
+                        <option value="<%=categorias[i]%>"><%=categorias[i]%></option>
+                    <%}%> 
                 </select>
 
                 <label for="img">Subir Imagen</label>
@@ -42,29 +38,20 @@
                 <label for="talles">Seleccionar Talle</label>
 
                 <div>
-                    <label><input type="checkbox" name="talles" value="XS">  XS<label>
-                    <label><input type="checkbox" name="talles" value="S"> S</label>
-                    <label><input type="checkbox" name="talles" value="M"> M</label>
-                    <label><input type="checkbox" name="talles" value="L"> L</label>
-                    <label><input type="checkbox" name="talles" value="XL"> XL</label>
+                    <% for (let i =0; i<talles.length; i++) { %>
+                        <label>
+                            <input type="checkbox" name="talles" value="<%=talles[i]%>"><%=talles[i]%>
+                        </label>
+                    <%}%> 
                 </div>
 
 
                 <label for="color">Seleccionar Color</label>
 
                 <select name="color">
-                        <option value="Negro">Negro</option>
-                        <option value="Rojo">Rojo</option>
-                        <option value="Blanco">Blanco</option>
-                        <option value="Celeste">Celeste</option>
-                        <option value="Rosado">Rosado</option>
-                        <option value="Gris">Gris</option>
-                        <option value="Naranja">Naranja</option>
-                        <option value="Azul">Azul</option>
-                        <option value="Amarillo">Amarillo</option>
-                        <option value="Verde">Verde</option>
-                        <option value="Combinado">Combinado</option>
-                        <option value="Tricolor">Tricolor</option>
+                    <% for (let i =0; i<colores.length; i++) { %>
+                        <option value="<%=colores[i]%>" ><%=colores[i]%></option> 
+                    <%}%> 
                 </select>
 
                 <label for="precio">Precio</label>

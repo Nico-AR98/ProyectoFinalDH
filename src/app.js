@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const methodOverride=require("method-override");
+let session = require('express-session');
 
 //Config de EJS Template Engine
 app.set("view engine", "ejs")
@@ -12,6 +14,10 @@ app.use(express.static("../public"));
 //Config formularios
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+app.use(methodOverride("_method"));
+
+//Config session
+app.use(session({secret: "Ambos Seven"}));
 
 //Rutas
 const rutasProducto = require("./routes/producto");

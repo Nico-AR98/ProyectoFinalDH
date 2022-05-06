@@ -37,13 +37,13 @@ router.get("/detalle/:idProducto",productoController.detalle);
 router.get("/create",productoController.crear);
 
 //Procesamiento formulario de creación
-router.post("/create",fileUpload.single('img'), productoController.registrar);
+router.post("/create",fileUpload.single('img'), productoController.registrarCreacion);
 
 //Formulario de edición de producto
 router.get("/edit/:idProducto",productoController.editar);
 
 //Procesamiento formulario de edición
-router.put("/edit/:idProducto",fileUpload.single('img'),productoController.editar);
+router.put("/edit/:idProducto",fileUpload.single('img'),productoController.registrarEdicion);
 
 //Borrado de producto
 router.delete("/delete/:idProducto",productoController.borrar);
