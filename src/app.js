@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const methodOverride=require("method-override");
 let session = require('express-session');
+const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 //Config de EJS Template Engine
 app.set("view engine", "ejs")
@@ -17,7 +18,19 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 
 //Config session
-app.use(session({secret: "Ambos Seven"}));
+app.use(session({
+    secret: "Ambos Seven",  
+    resave: false,
+    saveUninitialized: false,
+}));
+
+//Esto me sirve para acceder a la session desde las vistas
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    next();
+});
+
+app.use(userLoggedMiddleware);
 
 //Rutas
 const rutasProducto = require("./routes/producto");

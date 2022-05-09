@@ -4,20 +4,17 @@
         <div id="cabeceraSup">
 
             <h2 id="nameMarca">Ambos Seven</h2>
-            <!--
-            <div id="icon-responsive">
-                <button ><i class="fab fa-buffer"></i></button>
-            </div>-->
 
             <div class="icons-desktop">
 
                 <article>
                     <button id="open"><i class="fas fa-search"></i></button>
                 </article>
-
-                <article>
-                    <a href="/user/login"><i class="fas fa-sign-in-alt"></i></a>
-                </article>
+                <% if (!locals.isLogged){ %> 
+                    <article>
+                        <a href="/user/login"><i class="fas fa-sign-in-alt"></i></a>
+                    </article>
+                <% } %> 
 
                 <article>
                     <a href="/productCart"><i class="fas fa-cart-plus"></i></a>
@@ -44,8 +41,16 @@
                     <a href="#">Contacto</a>
                 </li>
                 <li>
-                    <a id="open2" href="#">Tabla de Talles</a>
+                    <a href="#">Tabla de Talles</a>
                 </li>
+                <% if (locals.isLogged) { %>
+                    <li>
+                        <p>¡Bienvenido <%= user.nombreCompleto%>!</p>
+                    </li>
+                    <li>
+                        <a href="/user/logout">Cerrar sesión</a>
+                    </li>
+                <%}%>
             </ul>
 
         </div>
