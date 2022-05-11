@@ -1,11 +1,11 @@
-const fs = require("fs");
-
-const productos = JSON.parse(fs.readFileSync("../data/products.json","utf-8"));
-
+let db = require('../../database/models'); //Importo la base de datos
 
 const controlador = {
-    home:(req, res) => {
-        res.render('index',{'productos':productos});
+    home: (req,res)=>{
+        db.productos.findAll()
+            .then(function(productos){
+                res.render('index',{'productos':productos});
+        })   
     },
 }
 

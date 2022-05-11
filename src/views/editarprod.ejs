@@ -24,63 +24,54 @@
 
                 <textarea name="descripcion" required><%=producto.descripcion%></textarea>
 
-                <label for="categoria">Seleccionar categoria</label>
-
-                <select name="categoria" required>
-
+                <label for="categoria">Categoria</label>
+                <select name="categoria">
                     <% for (let i =0; i<categorias.length; i++) { %>
-
-                        <% if (categorias[i]==producto.categoria){ %>
-                            <option value="<%=categorias[i]%>" selected><%=categorias[i]%></option>
-                        <% continue}%> 
                         <option value="<%=categorias[i]%>"><%=categorias[i]%></option>
                     <%}%> 
-
                 </select>
-
-                <label for="img">Subir Imagen</label>
+                
+                <label for="img">Imagen</label>
                 <input  type="file" name="img">
 
-                <label for="talles">Seleccionar Talle</label>
+                <label for="talles">Talle</label>
 
-                <div>
+                <select name="talle">
 
                     <% for (let i =0; i<talles.length; i++) { %>
 
-                        <% if (producto.talles.includes(talles[i])){ %>
+                        <% if (producto.talle == talles[i]){ %>
 
-                            <label>
-                                <input type="checkbox" name="talles" value="<%=talles[i]%>" checked><%=talles[i]%>
-                            </label>
+                            <option value="<%=talles[i]%>" selected><%=talles[i]%></option>
 
                         <% continue}%> 
 
-                        <label>
-                            <input type="checkbox" name="talles" value="<%=talles[i]%>"><%=talles[i]%>
-                        </label>
+                        
+                        <% for (let i =0; i<categorias.length; i++) { %>
+                            <option value="<%=talles[i]%>"><%=talles[i]%></option>
+                        <%}%> 
 
                     <%}%> 
 
-                </div>
-
-
-                <label for="color">Seleccionar Color</label>
-
-                <select name="color">
-                    <% for (let i =0; i<colores.length; i++) { %>
-
-                        <% if (colores[i]==producto.color){ %>
-                            <option value="<%=colores[i]%>" selected><%=colores[i]%></option>
-                        <% continue}%> 
-                        <option value="<%=colores[i]%>"><%=colores[i]%></option> 
-                    <%}%> 
                 </select>
+
+
+                <label for="color">Color</label>
+                <input class="input1" type="text" name="color" value="<%=producto.color%>"required>
+                
 
                 <label for="precio">Precio</label>
                 <input type="number" name="precio" value="<%=producto.precio%>"required>
 
+                <label for="precio">Stock</label>
+                <input type="number" name="stock" value="<%=producto.stock%>"required>
+
                 <button class="btn1" type="submit">Editar producto</button>
 
+            </form>
+
+            <form action="/producto/delete/<%=producto.id%>" method="post">
+                <button class="btn1" type="submit">Eliminar producto</button>
             </form>
         </main>
 

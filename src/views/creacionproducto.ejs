@@ -24,7 +24,7 @@
 
                 <textarea name="descripcion" required></textarea>
 
-                <label for="categoria">Seleccionar categoria</label>
+                <label for="categoria">Categoria</label>
 
                 <select name="categoria">
                     <% for (let i =0; i<categorias.length; i++) { %>
@@ -32,30 +32,25 @@
                     <%}%> 
                 </select>
 
-                <label for="img">Subir Imagen</label>
+                <label for="img">Imagen</label>
                 <input  type="file" name="img" required>
 
-                <label for="talles">Seleccionar Talle</label>
+                <label for="talle">Talle</label>
 
-                <div>
-                    <% for (let i =0; i<talles.length; i++) { %>
-                        <label>
-                            <input type="checkbox" name="talles" value="<%=talles[i]%>"><%=talles[i]%>
-                        </label>
-                    <%}%> 
-                </div>
-
-
-                <label for="color">Seleccionar Color</label>
-
-                <select name="color">
-                    <% for (let i =0; i<colores.length; i++) { %>
-                        <option value="<%=colores[i]%>" ><%=colores[i]%></option> 
+                <select name="talle">
+                    <% for (let i =0; i<categorias.length; i++) { %>
+                        <option value="<%=talles[i]%>"><%=talles[i]%></option>
                     <%}%> 
                 </select>
 
+                <label for="color">Color</label>
+                <input class="input1" type="text" name="color" required>
+
                 <label for="precio">Precio</label>
                 <input class="input1" type="number" name="precio" required>
+
+                <label for="stock">Stock</label>
+                <input class="input1" type="number" name="stock" required>
 
 
                 <button class="btn1" type="submit">Crear producto</button>

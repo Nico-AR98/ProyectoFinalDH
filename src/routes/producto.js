@@ -46,6 +46,6 @@ router.get("/edit/:idProducto",productoController.editar);
 router.put("/edit/:idProducto",fileUpload.single('img'),productoController.registrarEdicion);
 
 //Borrado de producto
-router.delete("/delete/:idProducto",productoController.borrar);
+router.post("/delete/:idProducto",productoController.borrar);
 
 module.exports=router;

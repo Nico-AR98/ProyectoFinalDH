@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes ) => {
-    const Usuario = sequelize.define('Usuarios',{
+    const Usuario = sequelize.define('usuarios',{
         id:{
             autoIncrement: true,
             primaryKey: true,
@@ -9,6 +9,16 @@ module.exports = (sequelize,dataTypes ) => {
         nombreCompleto: {
             allowNull: false,
             type: dataTypes.STRING
+        },
+
+        password: {
+            allowNull: false,
+            type: dataTypes.TEXT
+        },
+
+        imagen: {
+            allowNull: false,
+            type: dataTypes.TEXT
         },
         
         email: {
@@ -21,6 +31,7 @@ module.exports = (sequelize,dataTypes ) => {
             allowNull: false,
             type: dataTypes.STRING
         },
+
 
         is_admin: {
             type: dataTypes.BOOLEAN,

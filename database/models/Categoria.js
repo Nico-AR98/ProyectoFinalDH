@@ -15,12 +15,13 @@ module.exports = (sequelize,dataTypes ) => {
         timestamps: false }
     );
 
+    /*
     Categoria.associate(function(models){
         Categoria.hasMany(models.Productos,{
             foreignKey: 'id_categoria',
             as: 'productos'
         }) //Con esto se establece la relación entre categoria y productos
-    })
+    })*/
 
 
     return Categoria;

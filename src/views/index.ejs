@@ -60,11 +60,17 @@
         <section id="productosDestacados">
             <% for (let i =0; i<productos.length; i++) { %>
               <article>
-                <img src= <%=productos[i].srcImg%> >
+                <img src= <%=productos[i].imagen%> >
                 <div>
-                  <h3><%= productos[i].nombre%></h3>
+                  <h3><%= productos[i].nombre +" "+ productos[i].color%></h3>
                   <h3>$<%= productos[i].precio%></h3>
-                  <a href="producto/detalle/<%=(i+1)%>"><i class="far fa-plus-square"></i></a>
+                  <div class="iconContainer">
+  
+                    <a href="/producto/detalle/<%= productos[i].id%>"><i class="far fa-plus-square"></i></a>
+  
+                    <a href="/producto/edit/<%= productos[i].id%>"><i class="far fa-edit"></i></a>
+  
+                  </div>
                 </div>
               </article>
             <%}%> 

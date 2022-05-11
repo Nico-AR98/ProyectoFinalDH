@@ -1,7 +1,4 @@
-const { redirect } = require("express/lib/response");
-const fs = require("fs");
-
-const productos = JSON.parse(fs.readFileSync("../data/products.json","utf-8"));
+let db = require('../../database/models'); //Importo la base de datos
 
 const categorias = ["Hombres","Mujeres","Accesorios"];
 
@@ -9,32 +6,22 @@ const talles = ["XS","S","M","L","XL"];
 
 const colores = ["Negro","Rojo","Blanco","Celeste","Rosado","Gris","Naranja","Azul","Amarillo","Verde","Combinado","Tricolor"];
 
-const campos = ["id","nombre","descripcion","color","talles","categoria","precio"];
-
-
-//Funciones
-
-function modificarJSON(res){
-    arrayModificado = productos;
-
-    //Añadir el nuevo producto al archivo JSON
-
-    fs.writeFileSync("../data/products.json",JSON.stringify(arrayModificado));
-
-    res.redirect("/producto");
-};
-
 const controlador= {
  
     catalogo: (req,res)=>{
-        res.render("catalogoDeProductos",{'productos':productos});
+        db.productos.findAll()
+            .then(function(productos){
+                res.render("catalogoDeProductos",{'productos':productos});
+        })   
     },
 
     detalle: (req, res) => {
-        let idProducto =req.params.idProducto;
-        var producto = productos[idProducto-1];
-        let precioCuota = ((producto.precio)/12).toFixed(2)
-        res.render('productDetail',{producto,precioCuota})
+
+        db.productos.findByPk(req.params.idProducto)
+            .then(function(producto){
+                let precioCuota = ((producto.precio)/12).toFixed(2)
+                res.render("productDetail",{producto,precioCuota});
+        })
     },
 
     crear:(req,res)=>{
@@ -43,65 +30,59 @@ const controlador= {
 
     registrarCreacion:(req,res)=>{
         let form = req.body;
-        let nuevoProducto = {
-            id: productos.length+1,
-            nombre:form.nombre ,
-            descripcion:form.descripcion ,
-            color: form.color,
-            talles:form.talles,
-            categoria:form.categoria ,
-            precio: form.precio,
+
+        db.productos.create({
+            nombre:form.nombre,
+            descripcion:form.descripcion,
+            talle:form.talle,
+            color:form.color,
+            categoria: form.categoria,
+            precio:form.precio,
+            stock:form.stock,
             imagen:"/images/productos/" + req.file.filename,
-        }
-        productos.push(nuevoProducto);
-        modificarJSON(res);
+        });
+
+        res.redirect('/producto')
     },
 
     editar:(req, res) => {
-        let idProducto =req.params.idProducto;
 
-        var producto = productos[idProducto-1];
-
-        res.render('editarprod',{producto,categorias,talles,colores});
+        db.productos.findByPk(req.params.idProducto)
+        .then(function(producto){
+            res.render('editarprod',{producto,categorias,talles,colores});
+        })
 
     },
 
     registrarEdicion:(req,res)=>{
         let form = req.body;
-        let idProducto = req.params.idProducto;
-        let producto=productos[idProducto-1];
-        let productoEditado = {
-            id: producto.id,
-            nombre:form.nombre ,
-            descripcion:form.descripcion ,
-            color: form.color,
-            talles:form.talles,
-            categoria:form.categoria ,
-            precio: form.precio,
-        }
-        if(!req.file){
-            var imagen = {imagen: producto.imagen};
-            
-        } else {
-            var imagen = {imagen: "/images/productos/" + req.file.filename};
-        }
-        productoEditado = Object.assign(productoEditado,imagen);
 
-        productos[idProducto-1]=productoEditado;
-        
-        modificarJSON(res);
+        db.productos.update({
+                nombre:form.nombre,
+                descripcion:form.descripcion,
+                talle:form.talle,
+                color:form.color,
+                categoria: form.categoria,
+                precio:form.precio,
+                stock:form.stock,
+                imagen:"/images/productos/" + req.file.filename,
+            }, {where:
+                {id: req.params.idProducto}  
+            });
+
+    
+        res.redirect('/producto');
     },
 
     borrar: (req,res)=>{
-        let idProducto =req.params.idProducto;
-        /*for(let i=0;i<productos.length;i++){
-            if (productos[i].id==idProducto){
-                productos.splice(i)
-            }
-        }*/
-        productos.splice(productos[idProducto-1])
 
-        modificarJSON(res);
+        db.productos.destroy({
+            where:{
+                id:req.params.idProducto
+            }
+        });
+
+        res.redirect('/producto');
     }
 };
 

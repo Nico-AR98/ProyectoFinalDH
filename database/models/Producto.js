@@ -1,5 +1,5 @@
 module.exports = (sequelize,dataTypes ) => {
-    const Producto = sequelize.define('Productos',{
+    const Producto = sequelize.define('productos',{
         id:{
             autoIncrement: true,
             primaryKey: true,
@@ -26,6 +26,11 @@ module.exports = (sequelize,dataTypes ) => {
             type:dataTypes.STRING
         },
 
+        categoria: {
+            allowNull: false,
+            type:dataTypes.STRING
+        },
+
         precio:{
             allowNull: false,
             type: dataTypes.INTEGER
@@ -46,13 +51,13 @@ module.exports = (sequelize,dataTypes ) => {
         timestamps: false }
     );
 
-    Producto.associate(function(models){
+    /*Producto.associate(function(models){
         Producto.belongsTo(models.Categorias,{
             foreignKey: 'id_categoria',
             as:'categorias'
         })
     })
+    */
 
-
-    return Categoria;
+    return Producto;
 }
