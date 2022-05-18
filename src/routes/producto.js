@@ -1,31 +1,9 @@
 const express=require("express");
 const router = express.Router();
-const {body} = require("express-validator");
-const multer = require("multer");
+const {validacionesProducto} = require('../../middlewares/validacionesProductoMiddleware');
 const productoController = require('../controllers/productoController');
-const path = require('path');
+const fileUpload = require('../../middlewares/multerProductoMiddleware');
 
-//validaciones
-const validacionProducto=[
-    body('nombre').notEmpty(),
-    body('descripcion').notEmpty(),
-    body('categoria').notEmpty(),
-    body('talles').notEmpty(),
-]
-
-//Config de multer
-let multerDiskStorage = multer.diskStorage({
-    destination:(req,file,callback)=>{
-        let folder = path.join(__dirname,'../../public/images/productos');
-        callback(null,folder);
-    },
-    filename:(req,file,callback)=>{
-        let imageName = Date.now() + path.extname(file.originalname);
-        callback(null,imageName);
-    }
-});
-
-let fileUpload = multer({storage: multerDiskStorage});
 
 //Muestra todos los productos
 router.get("/",productoController.catalogo);
@@ -37,13 +15,13 @@ router.get("/detalle/:idProducto",productoController.detalle);
 router.get("/create",productoController.crear);
 
 //Procesamiento formulario de creación
-router.post("/create",fileUpload.single('img'), productoController.registrarCreacion);
+router.post("/create",fileUpload.single('img'),validacionesProducto, productoController.registrarCreacion);
 
 //Formulario de edición de producto
 router.get("/edit/:idProducto",productoController.editar);
 
 //Procesamiento formulario de edición
-router.put("/edit/:idProducto",fileUpload.single('img'),productoController.registrarEdicion);
+router.put("/edit/:idProducto",fileUpload.single('img'),validacionesProducto,productoController.registrarEdicion);
 
 //Borrado de producto
 router.post("/delete/:idProducto",productoController.borrar);

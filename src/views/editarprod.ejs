@@ -12,13 +12,25 @@
 
         <main>
 
+            <%if (locals && locals.errores) {%>
+
+                <%errores.forEach(error => { %>
+    
+                    <p style="color:red; text-align:center">
+                        <%= error.msg%>
+                    </p>
+    
+                <%})%>
+     
+            <%}%>
+
             <h1 class="titulo2">Editar Producto</h1>
 
             <form action="/producto/edit/<%=producto.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre</label>
 
-                <input type="text" name="nombre" value="<%=producto.nombre%>" required>
+                <input type="text" name="nombre" value="<%=producto.nombre%>">
 
                 <label for="descripcion">Descripcion</label>
 
@@ -57,14 +69,14 @@
 
 
                 <label for="color">Color</label>
-                <input class="input1" type="text" name="color" value="<%=producto.color%>"required>
+                <input class="input1" type="text" name="color" value="<%=producto.color%>">
                 
 
                 <label for="precio">Precio</label>
-                <input type="number" name="precio" value="<%=producto.precio%>"required>
+                <input type="number" name="precio" value="<%=producto.precio%>">
 
                 <label for="precio">Stock</label>
-                <input type="number" name="stock" value="<%=producto.stock%>"required>
+                <input type="number" name="stock" value="<%=producto.stock%>">
 
                 <button class="btn1" type="submit">Editar producto</button>
 

@@ -9,8 +9,19 @@
 
 <body>
     <%- include('./partials/navbar') %>
-
+    
         <main >
+            <%if (locals && locals.errores) {%>
+
+                <%errores.forEach(error => { %>
+    
+                    <p style="color:red; text-align:center">
+                        <%= error.msg%>
+                    </p>
+    
+                <%})%>
+     
+            <%}%>
 
             <h1 class="titulo2">Creación de Nuevo Producto</h1>
 
@@ -18,11 +29,11 @@
 
                 <label for="nombre">Nombre</label>
 
-                <input class="input1" type="text" name="nombre" required>
+                <input class="input1" type="text" name="nombre">
 
                 <label for="descripcion">Descripcion</label>
 
-                <textarea name="descripcion" required></textarea>
+                <textarea name="descripcion" ></textarea>
 
                 <label for="categoria">Categoria</label>
 
@@ -33,7 +44,7 @@
                 </select>
 
                 <label for="img">Imagen</label>
-                <input  type="file" name="img" required>
+                <input  type="file" name="img">
 
                 <label for="talle">Talle</label>
 
@@ -44,13 +55,13 @@
                 </select>
 
                 <label for="color">Color</label>
-                <input class="input1" type="text" name="color" required>
+                <input class="input1" type="text" name="color" >
 
                 <label for="precio">Precio</label>
-                <input class="input1" type="number" name="precio" required>
+                <input class="input1" type="number" name="precio" >
 
                 <label for="stock">Stock</label>
-                <input class="input1" type="number" name="stock" required>
+                <input class="input1" type="number" name="stock" >
 
 
                 <button class="btn1" type="submit">Crear producto</button>

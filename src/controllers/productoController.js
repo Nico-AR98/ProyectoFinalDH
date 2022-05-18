@@ -1,5 +1,7 @@
 let db = require('../../database/models'); //Importo la base de datos
 
+const { validationResult } = require("express-validator");
+
 const categorias = ["Hombres","Mujeres","Accesorios"];
 
 const talles = ["XS","S","M","L","XL"];
@@ -30,19 +32,31 @@ const controlador= {
 
     registrarCreacion:(req,res)=>{
         let form = req.body;
+        let errores = validationResult(req);  
 
-        db.productos.create({
-            nombre:form.nombre,
-            descripcion:form.descripcion,
-            talle:form.talle,
-            color:form.color,
-            categoria: form.categoria,
-            precio:form.precio,
-            stock:form.stock,
-            imagen:"/images/productos/" + req.file.filename,
-        });
+        if(!errores.isEmpty()){
+            return res.render('creacionproducto',{
+                errores:errores.array(),
+                old: req.body,
+                categorias,
+                talles,
+                colores
+            });
+        } else {
 
-        res.redirect('/producto')
+            db.productos.create({
+                nombre:form.nombre,
+                descripcion:form.descripcion,
+                talle:form.talle,
+                color:form.color,
+                categoria: form.categoria,
+                precio:form.precio,
+                stock:form.stock,
+                imagen:"/images/productos/" + req.file.filename,
+            });
+
+            res.redirect('/producto')
+        }
     },
 
     editar:(req, res) => {
@@ -56,22 +70,35 @@ const controlador= {
 
     registrarEdicion:(req,res)=>{
         let form = req.body;
+        let errores = validationResult(req);  
 
-        db.productos.update({
-                nombre:form.nombre,
-                descripcion:form.descripcion,
-                talle:form.talle,
-                color:form.color,
-                categoria: form.categoria,
-                precio:form.precio,
-                stock:form.stock,
-                imagen:"/images/productos/" + req.file.filename,
-            }, {where:
-                {id: req.params.idProducto}  
+        if(!errores.isEmpty()){
+            return res.render('editarprod',{
+                errores:errores.array(),
+                old: req.body,
+                producto,
+                categorias,
+                talles,
+                colores
             });
+        } else {
 
-    
-        res.redirect('/producto');
+            db.productos.update({
+                    nombre:form.nombre,
+                    descripcion:form.descripcion,
+                    talle:form.talle,
+                    color:form.color,
+                    categoria: form.categoria,
+                    precio:form.precio,
+                    stock:form.stock,
+                    imagen:"/images/productos/" + req.file.filename,
+                }, {where:
+                    {id: req.params.idProducto}  
+                });
+
+        
+            res.redirect('/producto');
+        }
     },
 
     borrar: (req,res)=>{
