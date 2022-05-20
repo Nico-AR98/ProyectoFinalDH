@@ -38,7 +38,9 @@
 
                   <a href="/producto/detalle/<%= productos[i].id%>"><i class="far fa-plus-square"></i></a>
 
-                  <a href="/producto/edit/<%= productos[i].id%>"><i class="far fa-edit"></i></a>
+                  <% if (locals.isLogged && user.is_admin){ %> 
+                    <a href="/producto/edit/<%= productos[i].id%>"><i class="far fa-edit"></i></a>
+                  <%}%>
 
                 </div>
               </div>
