@@ -15,7 +15,6 @@ let multerDiskStorage = multer.diskStorage({
 
 let fileUpload = multer({
     storage: multerDiskStorage,
-    limits:{fileSize:200000},
     fileFilter: (req,file,callback) => { //Esto permite validar si el archivo tiene una extensión válida, de lo contrario no se sube
         let type = file.mimetype.startsWith('image/');
         type?callback(null,true):callback(null,false);

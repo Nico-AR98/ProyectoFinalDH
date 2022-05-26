@@ -10,18 +10,18 @@ const validacionesRegistro = [
         } else {
             return true;
         }
-      }),
+      }),/*
       body('img').custom((filename)=>{
         var file = new String(filename);
         extension = file.split('.');
-        extension = extension[1]
+        //extension = extension[1]
         
          if (extension=='.jpg'|| extension=='.jpeg'||extension=='.png'){
              return true;
          } else {
              return false;
          }
-     }).notEmpty().withMessage('Debes cargar la imagen de perfil en formato .jpeg , .png o .jpg'),
+     }).notEmpty().withMessage('Debes cargar la imagen de perfil en formato .jpeg , .png o .jpg'),*/
 
 ];
 
