@@ -23,45 +23,85 @@
  
         <%}%>
 
-        <form action="/user/registro" method="POST" enctype="multipart/form-data" class="registro">
+        
+        <form action="/user/registro" method="POST" enctype="multipart/form-data" class="registro" id="userRegister">
+
             <h2 class="titulo2">Crear cuenta</h2>
-            <p class="control-register">
-                <label>Nombre y Apellido</label>
-                <input type="text" name="nombreCompleto" value="<%= locals.old && old.nombreCompleto ? old.nombreCompleto : '' %>" >
-            </p>
-            <p class="control-register">
-                <label>Dirección de Correo Electrónico</label>
-                <input type="email" name="email" placeholder="tunombre@email.com" value="<%= locals.old && old.email ? old.email : '' %>">
-            </p>
-            <p class="control-register">
-                <label>Teléfono</label>
-                <input type="num" name="telefono" value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
-            </p>
 
-            <p class="control-register">
-                <label>Foto de perfil</label>
-                <input type="file" name="img" >
-            </p>
+            <fielset class="control-register" id="grupo__nombreCompleto">
+                <label class="formulario__label">Nombre y Apellido</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" type="text" name="nombreCompleto" id="nombreCompleto" value="<%= locals.old && old.nombreCompleto ? old.nombreCompleto : '' %>" >
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar ocultar"></i>
+                </div>
+                <p class="formulario__input-error">El nombre debe tener al menos 2 caracteres.</p>
+            </fielset>
 
-            <p class="control-register">
-                <label>Contraseña</label>
-                <input type="password" name="password" required>
-            </p>
-            <p class="control-register">
-                <label>Repetir contraseña</label>
-                <input type="password" name="passwordConfirm" required>
-            </p>
+            <fielset class="control-register" id="grupo__email">
+                <label class="formulario__label">Dirección de Correo Electrónico</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" type="email" name="email" placeholder="tunombre@email.com" value="<%= locals.old && old.email ? old.email : '' %>">
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y guion bajo.</p>
+            </fielset>
 
-            <p class="control-register">
+            <fielset class="control-register" id="grupo__telefono">
+                <label class="formulario__label">Teléfono</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" typeaction="/user/registro" method="POST" enctype="multipart/form-data" type="num" name="telefono" id="telefono" value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                </div>
+                <p class="formulario__input-error">El telefono solo puede contener numeros y el máximo son 14 dígitos.</p>
+                
+            </fielset>
+            
+            <fielset class="control-register" id="grupo__img">
+                <label class="formulario__label">Foto de perfil</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" type="file" accept=".jpg,.png,jpeg" required onchange="validarImg()" name="img" id="img">
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                </div>
+                <p class="formulario__input-error">Debes cargar una imágen en formato .JPG, .JPEG o .PNG</p>
+    
+            </fielset>
+
+            <fielset class="control-register" id="grupo__password">
+                <label class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" type="password" name="password" id="password">
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                </div>
+                <p class="formulario__input-error">La contraseña debe tener al menos 8 caracteres</p>
+            </fielset>
+
+            <fielset class="control-register" id="grupo__passwordConfirm">
+                <label class="formulario__label">Repetir contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input class="formulario__input" type="password" name="passwordConfirm" id="passwordConfirm">
+                    <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                </div>
+                <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+            </fielset><br><br>
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+           <fieldset class="formulario__grupo">
                 <button type="submit" class="boton">Crear cuenta</button>
-            </p>
-            <div class="box-check">
-            <p class="control-register acomodar">
+           </fieldset><br>
+            
+
+            <fielset class="control-register acomodar">
                 <label>¿Ya tienes cuenta?</label> 
                 <a href="/login">Inicia sesión</a>
-            </p>
-            </div>
+            </fielset>
+
+        </form>
     </main>
     <%- include('./partials/footer') %>
+
+    <script src="/js/validacionesFrontUserRegister.js"></script>
 </body>
 </html>
