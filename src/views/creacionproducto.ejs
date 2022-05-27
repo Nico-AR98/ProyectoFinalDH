@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <%- include('./partials/navbar') %>
+<%- include('./partials/navbar') %>
     
         <main >
             <%if (locals && locals.errores) {%>
@@ -25,44 +25,94 @@
 
             <h1 class="titulo2">Creación de Nuevo Producto</h1>
 
-            <form action="/producto/create" method="post" enctype="multipart/form-data">
+            <form action="/producto/create" method="post" enctype="multipart/form-data" class="registro" id="formulario">
 
-                <label for="nombre">Nombre</label>
+                <fieldset class="control-register" id="grupo__nombre">
+                    <label for="nombre">Nombre</label>
+                    
+                    <div class="formulario__grupo-input">
+                        <input class="input1" type="text" name="nombre">
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">El nombre del producto debe tener al menos 5 caracteres.</p>
+                </fieldset>
 
-                <input class="input1" type="text" name="nombre">
+                <fieldset class="control-register" id="grupo__descripcion">
+                    <label for="descripcion">Descripcion</label>
+                    
+                    <div class="formulario__grupo-input">
+                        <textarea name="descripcion" id="descripcion" ></textarea>
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">La descripción del producto debe tener al menos 20 caracteres.</p>
+                </fieldset>
 
-                <label for="descripcion">Descripcion</label>
+                <p class="formulario__input-error"></p>
+                <fieldset class="control-register" id="grupo__categoria">
 
-                <textarea name="descripcion" ></textarea>
+                    <label for="categoria">Categoria</label>
 
-                <label for="categoria">Categoria</label>
+                    <select name="categoria">
+                        <% for (let i =0; i<categorias.length; i++) { %>
+                             <option value="<%=categorias[i]%>"><%=categorias[i]%></option>
+                        <%}%> 
+                    </select>
 
-                <select name="categoria">
-                    <% for (let i =0; i<categorias.length; i++) { %>
-                        <option value="<%=categorias[i]%>"><%=categorias[i]%></option>
-                    <%}%> 
-                </select>
+                </fieldset>
 
-                <label for="img">Imagen</label>
-                <input  type="file" name="img">
+                <fieldset class="control-register" id="grupo__img">
+                    <label for="img">Imagen</label>
+                    <div class="formulario__grupo-input">
+                        <input  type="file" accept=".jpg,.png,jpeg" required onchange="validarImg()" name="img" id="img">
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">Debes cargar una imágen en formato .JPG, .JPEG o .PNG</p>
+                </fieldset>
 
-                <label for="talle">Talle</label>
+                <fieldset class="control-register" id="grupo__talle"> 
+                    <label for="talle">Talle</label>
 
-                <select name="talle">
-                    <% for (let i =0; i<categorias.length; i++) { %>
-                        <option value="<%=talles[i]%>"><%=talles[i]%></option>
-                    <%}%> 
-                </select>
+                    <select name="talle">
+                        <% for (let i =0; i<categorias.length; i++) { %>
+                            <option value="<%=talles[i]%>"><%=talles[i]%></option>
+                        <%}%> 
+                    </select>
 
-                <label for="color">Color</label>
-                <input class="input1" type="text" name="color" >
+                </fieldset>
 
-                <label for="precio">Precio</label>
-                <input class="input1" type="number" name="precio" >
+                <fielset  class="control-register" id="grupo__color">
+                    <label for="color">Color</label>
+                    
+                    <div class="formulario__grupo-input">
+                        <input class="input1" type="text" name="color" id="color" >
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">Debes ingresar el color del producto</p>
+                </fielset>
 
-                <label for="stock">Stock</label>
-                <input class="input1" type="number" name="stock" >
+                <fielset class="control-register" id="grupo__precio">
+                    <label for="precio">Precio</label>
+                    
+                    <div class="formulario__grupo-input">
+                        <input class="input1" type="number" name="precio" id="precio" >
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">Debes ingresar el precio del producto</p>
+                </fielset>
 
+                <fielset class="control-register" id="grupo__stock">
+                    <label for="stock">Stock</label>
+                    
+                    <div class="formulario__grupo-input">
+                        <input class="input1" type="number" name="stock" id="stock">
+                        <i class="formulario__validacion-estado fas fa-times-circle ocultar"></i>
+                    </div>
+                    <p class="formulario__input-error">Debes ingresar el stock del producto</p>
+                </fielset>
+
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                </div>
 
                 <button class="btn1" type="submit">Crear producto</button>
 
@@ -71,10 +121,8 @@
 
                 
         </main>
-
-
-        </main>
-
+        <script src="/js/validaciones.js"></script>
+        <script src="/js/validacionesFrontProductos.js"></script>
 </body>
 <%- include('./partials/footer')%>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/formularios.css">
     <title>Ambos Seven - Registrarse</title>
     <%- include('./partials/head')%>
 </head>
@@ -24,7 +24,7 @@
         <%}%>
 
         
-        <form action="/user/registro" method="POST" enctype="multipart/form-data" class="registro" id="userRegister">
+        <form action="/user/registro" method="POST" enctype="multipart/form-data" class="registro" id="formulario">
 
             <h2 class="titulo2">Crear cuenta</h2>
 
@@ -88,9 +88,9 @@
 				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
 			</div>
 
-           <fieldset class="formulario__grupo">
-                <button type="submit" class="boton">Crear cuenta</button>
-           </fieldset><br>
+           
+            <button type="submit" class="btn1">Crear cuenta</button>
+           
             
 
             <fielset class="control-register acomodar">
@@ -102,6 +102,7 @@
     </main>
     <%- include('./partials/footer') %>
 
+    <script src="/js/validaciones.js"></script>
     <script src="/js/validacionesFrontUserRegister.js"></script>
 </body>
 </html>

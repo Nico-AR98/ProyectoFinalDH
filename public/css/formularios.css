@@ -1,30 +1,76 @@
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 15px;
-}
-
-form label {
-    font-size: 15px;
-    padding-top: 15px ;
-}
-
-form div label {
-    padding-top: 0;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-
-/* Los inputs 1 son aquellos que son de tipo numero,texto o password*/
-
-form .input1,select {
-    width: 20%;
-    height: 26px;
-    border: 0.5px solid #8F8E92ff;
-    border-radius: 5px;
+main{
     text-align: center;
+    padding: 20px 15px;
+}
+
+.h1{
+    font-size: large;
+}
+
+.control-register{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+
+.control-register label{
+    margin-bottom: 5px;
+    display: block;
+}
+
+.control-register input,select{
+    padding: 2px 45px;
+}
+
+.control-register-robot{
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 2px solid black;
+    margin-left: 590px;
+    margin-right: 590px;
+}
+
+.boton{
+    background-color: #dee2ff;
+    border-color: 2px solid black;
+    color: black;
+    padding: 2px 25px;
+    border-radius: 5px;
+}
+
+.boton:hover{
+    color: white;
+    background-color: #fa5284ff;
+    transition: background-color,0.3s;
+}
+
+main p a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.acomodar{
+    display: flex;
+    justify-content: center;
+}
+.acomodar label a{
+    padding-left: 15px;
+}
+.box-check{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: auto;
+}
+
+body header nav h2 a{
+    font-family: 'The Nautigal', cursive;
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: 550;
+    color: black;
 }
 
 form textarea {
@@ -57,3 +103,54 @@ form textarea {
     transition-duration: 0.2s;
 }
 
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+
+.formulario__input-error {
+    color:#bb2929 ;
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+.formulario__mensaje {
+	height: 30px;
+    width: 40%;
+    text-align: center;
+    margin: auto;
+	line-height: 25px;
+	background: #F66060;
+	padding-bottom: 5px;
+    margin-bottom: 5px;
+	border-radius: 3px;
+	display: none;
+}
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+
+.ocultar {
+    opacity: 0;
+}
