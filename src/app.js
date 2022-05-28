@@ -37,11 +37,13 @@ const rutasProducto = require("./routes/producto");
 const rutasMain = require("./routes/main");
 const rutasUser = require("./routes/user");
 const rutasCarrito = require("./routes/carrito");
+const rutasApi = require("./routes/api");
 
 
 app.use("/producto", rutasProducto);
 app.use("/user", rutasUser);
 app.use("/carrito", rutasCarrito);
+app.use("/api", rutasApi);
 app.use("/", rutasMain);
 
 

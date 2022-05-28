@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/formularios.css">
     <title>Ambos Seven - Login</title>
     <%- include('./partials/head')%>
 </head>
@@ -25,31 +26,37 @@
         
             <form action="/user/login" method="POST" class="login">
                 <h3 class="titulo2">Ingresar</h3>
-                <p class="control-login">
-                    <label>EMAIL</label>
+                <fieldset class="control-login">
+                    <label>Dirección de Correo Electrónico</label>
                     <input type="email" name="email" placeholder="tunombre@email.com" class="contraseña">
-                </p>
-                <p class="control-login">
-                    <label>CONTRASEÑA</label>
+                </fieldset>
+                <fieldset class="control-login">
+
+                    <label>Contraseña</label>
                     <input type="password" name="password" class="contraseña"><i class="fas fa-eye-slash"></i>
-                </p>
+                </fieldset>
+
                 <div class="box-check">
-                    <p class="control-login acomodar">
+
+                    <fieldset class="control-login acomodar">
                         <input type="checkbox" name="recordarme">
-                        <label>RECORDARME</label>
-                        
-                    </p>
-                    <p class="control-login">
+                        <label>Recordarme</label>
+                    </fieldset>
+
+                    <fieldset class="control-login">
                         <label>¿Olvidaste tu contraseña?</label>
-                    </p>
+                    </fieldset>
                 </div>
-                <p class="control-login">
+
+                <fieldset class="control-login">
                     <button type="submit" class="boton">INGRESAR</button>
-                </p>
-                <p class="control-login">
+                </fieldset>
+
+                <fieldset class="control-login">
                     <label>¿No tienes cuenta aún?</label>
                     <a href="/user/registro"><strong>CREAR CUENTA</strong></a>
-                </p>
+                </fieldset>
+
             </form>
     </main>
     <%-include('./partials/footer') %>
